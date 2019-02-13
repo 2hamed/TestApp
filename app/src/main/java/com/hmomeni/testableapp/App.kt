@@ -5,14 +5,21 @@ import com.hmomeni.testableapp.di.ApiModule
 import com.hmomeni.testableapp.di.AppModule
 import com.hmomeni.testableapp.di.DIComponent
 import com.hmomeni.testableapp.di.DaggerDIComponent
+import com.pixplicity.easyprefs.library.Prefs
+import timber.log.Timber
 
-class App : Application() {
+open class App : Application() {
     lateinit var di: DIComponent
     override fun onCreate() {
         super.onCreate()
+
+        Timber.plant(Timber.DebugTree())
+
         di = DaggerDIComponent.builder()
             .appModule(AppModule(this))
             .apiModule(ApiModule())
             .build()
+
+        Prefs.Builder().setContext(this).build()
     }
 }

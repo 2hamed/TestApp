@@ -7,6 +7,9 @@ import android.content.Context
 import android.content.res.Resources
 import android.provider.Settings
 import android.view.View
+import android.widget.Toast
+import androidx.annotation.StringRes
+import androidx.fragment.app.Fragment
 import com.hmomeni.testableapp.App
 import io.reactivex.*
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -53,3 +56,8 @@ fun View.gone() {
 fun View.visible() {
     this.visibility = View.VISIBLE
 }
+
+fun Context.toast(message: String) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+fun Context.toast(@StringRes message: Int) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+fun Fragment.toast(message: String) = Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+fun Fragment.toast(@StringRes message: Int) = Toast.makeText(context, message, Toast.LENGTH_SHORT).show()

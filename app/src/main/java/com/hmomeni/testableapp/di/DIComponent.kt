@@ -1,5 +1,6 @@
 package com.hmomeni.testableapp.di
 
+import com.hmomeni.testableapp.vms.ListViewModel
 import com.hmomeni.testableapp.vms.LoginViewModel
 import dagger.Component
 import javax.inject.Singleton
@@ -8,4 +9,5 @@ import javax.inject.Singleton
 @Component(modules = [ApiModule::class, AppModule::class])
 interface DIComponent {
     fun inject(loginViewModel: LoginViewModel)
+    fun inject(loginViewModel: ListViewModel)
 }
