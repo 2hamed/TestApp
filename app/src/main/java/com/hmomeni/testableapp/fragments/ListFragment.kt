@@ -36,9 +36,7 @@ class ListFragment : Fragment() {
             return
         }
 
-        viewModel = ViewModelProviders.of(this)[ListViewModel::class.java].apply {
-            inject(context!!.app())
-        }
+        viewModel = ViewModelProviders.of(this, injector.listViewModelFactory())[ListViewModel::class.java]
 
         mAdapter = UserRclAdapter(viewModel.users)
     }

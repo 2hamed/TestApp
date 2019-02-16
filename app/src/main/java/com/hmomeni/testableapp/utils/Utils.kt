@@ -2,6 +2,7 @@ package com.hmomeni.testableapp.utils
 
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.content.res.Resources
@@ -61,3 +62,6 @@ fun Context.toast(message: String) = Toast.makeText(this, message, Toast.LENGTH_
 fun Context.toast(@StringRes message: Int) = Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
 fun Fragment.toast(message: String) = Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
 fun Fragment.toast(@StringRes message: Int) = Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+
+val Fragment.injector get() = context!!.app().di
+val Activity.injector get() = app().di

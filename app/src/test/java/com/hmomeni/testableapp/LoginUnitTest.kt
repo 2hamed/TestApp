@@ -29,24 +29,6 @@ class LoginUnitTest {
 
     @Test
     fun `test LoginViewModel login`() {
-        `when`(viewModel.login("hamed.ma7@gmail.com", "123456"))
-            .thenReturn(Completable.complete())
-
-        viewModel.login("hamed.ma7@gmail.com", "123456").test().assertComplete()
-
-        `when`(viewModel.login("hamed.ma@gmail.com", "123456"))
-            .thenReturn(
-                Completable.error(
-                    HttpException(
-                        Response.error<User>(
-                            401,
-                            ResponseBody.create(MediaType.parse("application/text"), "")
-                        )
-                    )
-                )
-            )
-        viewModel.login("hamed.ma7@gmail.com", "123456").test().assertError(HttpException::class.java)
-
 
     }
 }

@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.hmomeni.testableapp.R
-import com.hmomeni.testableapp.utils.app
+import com.hmomeni.testableapp.utils.injector
 import com.hmomeni.testableapp.utils.iomain
 import com.hmomeni.testableapp.utils.toast
 import com.hmomeni.testableapp.vms.LoginViewModel
@@ -22,9 +22,7 @@ class LoginFragment : Fragment() {
     private lateinit var viewModel: LoginViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProviders.of(this)[LoginViewModel::class.java].apply {
-            inject(context!!.app())
-        }
+        viewModel = ViewModelProviders.of(this, injector.loginViewModelFactory())[LoginViewModel::class.java]
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

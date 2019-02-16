@@ -16,8 +16,7 @@ open class App : Application() {
         Timber.plant(Timber.DebugTree())
 
         di = DaggerDIComponent.builder()
-            .appModule(AppModule(this))
-            .apiModule(ApiModule())
+            .applicationContext(this)
             .build()
 
         Prefs.Builder().setContext(this).build()
