@@ -35,6 +35,7 @@ dependencies {
     testImplementation 'org.mockito:mockito-core:2.21.0'
     testImplementation 'androidx.test:core:1.1.0'
     testImplementation 'androidx.test:runner:1.1.2-alpha01'
+    testImplementation 'org.robolectric:robolectric:4.2'
 
     androidTestImplementation 'androidx.test:runner:1.1.2-alpha01'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.2-alpha01'
@@ -47,8 +48,8 @@ dependencies {
 
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0-alpha02'
     implementation 'androidx.room:room-runtime:2.1.0-alpha04'
-    kapt 'androidx.room:room-compiler:2.1.0-alpha04'
     implementation 'androidx.room:room-rxjava2:2.1.0-alpha04'
+    kapt 'androidx.room:room-compiler:2.1.0-alpha04'
 
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.11.0'
@@ -71,9 +72,11 @@ dependencies {
 
     implementation 'com.jakewharton.rxbinding3:rxbinding:3.0.0-alpha1'
 
-    kapt "com.google.dagger:dagger-compiler:2.16"
     implementation 'com.google.dagger:dagger:2.16'
-    implementation 'com.google.dagger:dagger-android:2.16'
+    kaptAndroidTest "com.google.dagger:dagger-compiler:2.16"
+    kaptTest "com.google.dagger:dagger-compiler:2.16"
+    kapt "com.google.dagger:dagger-compiler:2.16"
+
 
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
