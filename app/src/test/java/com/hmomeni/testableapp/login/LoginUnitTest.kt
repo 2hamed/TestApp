@@ -1,7 +1,8 @@
-package com.hmomeni.testableapp
+package com.hmomeni.testableapp.login
 
 import androidx.lifecycle.ViewModelProviders
 import androidx.test.core.app.ApplicationProvider
+import com.hmomeni.testableapp.MainActivity
 import com.hmomeni.testableapp.di.DaggerTestDIComponent
 import com.hmomeni.testableapp.di.TestDIComponent
 import com.hmomeni.testableapp.vms.LoginViewModel

@@ -6,9 +6,13 @@ import com.google.gson.Gson
 import com.hmomeni.testableapp.api.Api
 import com.pixplicity.easyprefs.library.Prefs
 import io.reactivex.Completable
+import timber.log.Timber
 import javax.inject.Inject
 
-class LoginViewModel : ViewModel() {
+class LoginViewModel @Inject constructor() : ViewModel() {
+    init {
+        Timber.d("LoginViewModel Created")
+    }
 
     @Inject
     lateinit var api: Api

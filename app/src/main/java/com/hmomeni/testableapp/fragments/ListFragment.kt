@@ -18,6 +18,7 @@ import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_list.*
 import kotlinx.android.synthetic.main.rcl_item_user.view.*
 import timber.log.Timber
+import javax.inject.Inject
 
 class ListFragment : Fragment() {
 
@@ -27,7 +28,7 @@ class ListFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        viewModel = ViewModelProviders.of(this, injector.listViewModelFactory())[ListViewModel::class.java]
         if (Prefs.getString("user", "").isBlank()) {
             findNavController().navigate(
                 ListFragmentDirections.actionListFragmentToLoginFragment(),
